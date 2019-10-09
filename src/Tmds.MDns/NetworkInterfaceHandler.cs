@@ -624,7 +624,8 @@ namespace Tmds.MDns
                 DateTime now = DateTime.Now;
 
                 bool sendQuery = false;
-                _lastQueryId = (ushort)_randomGenerator.Next(0, ushort.MaxValue);
+                //_lastQueryId = (ushort)_randomGenerator.Next(0, ushort.MaxValue);
+                _lastQueryId = 0
                 var writer = new DnsMessageWriter();
                 writer.WriteQueryHeader(_lastQueryId);
 
