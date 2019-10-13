@@ -625,7 +625,7 @@ namespace Tmds.MDns
 
                 bool sendQuery = false;
                 //_lastQueryId = (ushort)_randomGenerator.Next(0, ushort.MaxValue);
-                _lastQueryId = 0
+                _lastQueryId = (ushort)_randomGenerator.Next(0, 8192);
                 var writer = new DnsMessageWriter();
                 writer.WriteQueryHeader(_lastQueryId);
 
