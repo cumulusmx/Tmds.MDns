@@ -625,7 +625,10 @@ namespace Tmds.MDns
 
                 bool sendQuery = false;
                 //_lastQueryId = (ushort)_randomGenerator.Next(0, ushort.MaxValue);
-                _lastQueryId = (ushort)_randomGenerator.Next(0, 8192);
+                // WLL devices only respond to Query Ids <= 8192
+                //_lastQueryId = (ushort)_randomGenerator.Next(0, 8192);
+                // RFC says multicast queries should use Query Id = 0
+                _lastQueryId = 0;
                 var writer = new DnsMessageWriter();
                 writer.WriteQueryHeader(_lastQueryId);
 
